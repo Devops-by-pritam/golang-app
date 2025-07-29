@@ -63,7 +63,7 @@ docker push yourdockerhub/golang-app
 kubectl apply -f k8s/
 ```
 
-### 3. (Optional) ArgoCD GitOps Setup
+### 3. ArgoCD GitOps Setup
 
 Make sure the ArgoCD app watches your repo and namespace.
 
