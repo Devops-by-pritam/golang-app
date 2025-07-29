@@ -5,7 +5,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/Devops-by-pritam/golang-gitops
+    repoURL: https://github.com/Devops-by-pritam/golang-app
     targetRevision: HEAD
     path: k8s
   destination:
