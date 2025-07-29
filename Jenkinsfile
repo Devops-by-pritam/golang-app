@@ -15,7 +15,10 @@ pipeline {
 
     stage('Build Docker Image') {
       steps {
-        sh 'docker build -t $IMAGE .'
+        sh '''
+            export DOCKER_BUILDKIT=0
+            docker build -t $IMAGE .
+        '''
       }
     }
 
