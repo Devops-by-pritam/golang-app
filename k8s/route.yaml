@@ -1,0 +1,10 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: golang-route
+spec:
+  to:
+    kind: Service
+    name: golang-service
+  port:
+    targetPort: 80
