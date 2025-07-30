@@ -21,8 +21,7 @@ golang-app/
 │   └── route.yaml               # OpenShift Route
 │
 ├── Jenkinsfile                  # Jenkins CI/CD pipeline
-└── .argocd/
-     └── application.yaml         # ArgoCD GitOps config
+
 
 ````
 
@@ -62,10 +61,6 @@ docker push yourdockerhub/golang-app
 ```bash
 kubectl apply -f k8s/
 ```
-
-### 3. ArgoCD GitOps Setup
-
-Make sure the ArgoCD app watches your repo and namespace.
 
 ---
 
