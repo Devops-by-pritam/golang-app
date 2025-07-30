@@ -10,9 +10,10 @@ This is a simple, production-ready **Golang web application** built to showcase 
 
 golang-app/
 │
-├── main.go                      # Main Go web server
-├── Dockerfile                   # Containerization
-├── README.md
+├── app /
+|   ├── main.go                      # Main Go web server
+|   ├── Dockerfile                   # Containerization
+|   └── README.md
 │
 ├── k8s/
 │   ├── deployment.yaml          # Kubernetes Deployment
@@ -20,6 +21,7 @@ golang-app/
 │   └── route.yaml               # OpenShift Route
 │
 ├── Jenkinsfile                  # Jenkins CI/CD pipeline
+
 
 ````
 
@@ -59,6 +61,7 @@ docker push yourdockerhub/golang-app
 ```bash
 kubectl apply -f k8s/
 ```
+
 ---
 
 ## 📬 Contact
