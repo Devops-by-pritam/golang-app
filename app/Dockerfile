@@ -8,7 +8,7 @@ WORKDIR /app
 
 # Copy the go.mod and go.sum files first. This is a critical step for caching.
 # Docker will only re-run 'go mod download' if these files change.
-COPY go.mod go.sum ./
+COPY ../go.mod ../go.sum ./
 
 # Download Go module dependencies. This command is fast if the cache is hit.
 RUN go mod download
