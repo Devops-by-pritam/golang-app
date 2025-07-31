@@ -45,7 +45,7 @@ pipeline {
             oc login $OPENSHIFT_API --token=$OC_TOKEN --insecure-skip-tls-verify
 
             echo "Helm Deploying..."
-            helm upgrade --install $RELEASE_NAME ./k8s \
+            helm upgrade --install $RELEASE_NAME ./k8s/helm-chart \
               --set image.repository=docker.io/tusk03/golang-app \
               --set image.tag=latest \
               --namespace=$NAMESPACE
