@@ -21,7 +21,7 @@ COPY *.go ./
 # GOOS=linux: Ensures the binary is compiled for a Linux environment.
 # -ldflags="-w -s": Strips debug symbols to significantly reduce the binary size.
 # -o main .: Names the output binary 'main'.
-RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-w -s" -o main .
+RUN go build -ldflags="-w -s" -o main .
 
 # -----------------------------------------------------------------------------
 
