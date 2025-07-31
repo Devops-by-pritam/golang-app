@@ -20,7 +20,7 @@ pipeline {
       steps {
         sh '''
             export DOCKER_BUILDKIT=0
-            docker build -f ./app/Dockerfile -t $IMAGE ./app
+            docker build -f ./app/Dockerfile -t $IMAGE .
         '''
       }
     }
