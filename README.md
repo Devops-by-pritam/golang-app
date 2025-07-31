@@ -98,12 +98,3 @@ By the end of this CI/CD pipeline:
 * The app is available via a public OpenShift `Route`.
 
 ---
-
-## 👤 Author
-
-**Pritam Mane**
-🚀 DevOps Enthusiast | Cloud Learner | OpenShift Practitioner
-📌 Sangli, Maharashtra
-📫 [pritammane7666@gmail.com](mailto:pritammane7666@gmail.com)
-
----
