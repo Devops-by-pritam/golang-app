@@ -1,33 +1,34 @@
-# Stage 1: Build the Go app
-FROM golang:1.21 as builder
+# Stage 1: Build the Go application
+FROM golang:1.21-alpine AS builder
 
-# Set working directory inside container
 WORKDIR /app
 
-# Copy go.mod and go.sum first for caching
-COPY app/go.mod .
-COPY app/go.sum .
+# Copy go.mod and go.sum files to take advantage of Docker caching for dependencies
+COPY go.mod go.sum ./
 
-# Download dependencies
+# Download Go module dependencies, only fetching if go.mod/go.sum change
 RUN go mod download
 
-# Copy the rest of the source code
-COPY app/*.go .  # Make sure your .go files are inside the app/ folder
+# Copy the rest of the application source code
+COPY *.go ./
 
-# Build the Go app
-RUN CGO_ENABLED=0 GOOS=linux go build -o main
+# Build the Go application
+# CGO_ENABLED=0 creates a statically linked binary (no C libraries needed at runtime)
+# GOOS=linux ensures compatibility with Linux containers
+# -ldflags="-w -s" reduces binary size by omitting debug info and symbol table
+RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-w -s" -o main .
 
-# Stage 2: Run the compiled binary in a lightweight image
+# Stage 2: Create a lightweight image for the compiled binary
 FROM alpine:latest
 
-# Set working directory
-WORKDIR /root/
+# Set working directory for the application
+WORKDIR /app
 
-# Copy the compiled binary from builder stage
+# Copy the built Go binary from the builder stage
 COPY --from=builder /app/main .
 
-# Expose port the app listens on
+# Expose the port the application listens on (informational)
 EXPOSE 3000
 
-# Run the app
+# Run the Go application when the container starts
 CMD ["./main"]
