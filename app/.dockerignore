@@ -1,0 +1,16 @@
+# Ignore the Go cache and vendor directory
+.cache
+vendor/
+
+# Ignore the build output binary if it exists locally
+main
+
+# Ignore Git-related files
+.git
+.gitignore
+
+# Ignore any IDE or editor configuration
+.vscode
+.idea
+*.sublime-project
+*.sublime-workspace
