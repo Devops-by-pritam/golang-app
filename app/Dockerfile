@@ -1,7 +1,7 @@
 # Stage 1: Build the Go application
 # We use a specific version of Go on Alpine Linux to create the binary.
 # This stage is called 'builder'.
-FROM golang:1.21-alpine AS builder
+FROM golang:1.22.2-alpine AS builder
 
 # Set the working directory inside the container for this stage.
 WORKDIR /app
